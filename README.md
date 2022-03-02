@@ -16,3 +16,9 @@ sudo apt update
 sudo apt full-upgrade
 sudo raspi-config
 '''
+
+Update puzzle 1 (02/03/2022)
+
+ - Guardamos en csv un registro cada vez que el sensor lee un RFID valido
+
+Start puzzle 2 (02/03/2022)
