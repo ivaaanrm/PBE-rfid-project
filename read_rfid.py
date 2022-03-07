@@ -1,3 +1,16 @@
+
+""" 
+Ivan Romero Moreno,
+PBE Puzzle 1
+* Programa que imprime por consola el uid (user identifier de la tarjeta de la UPC)
+* El uid se imprime en mayusculas y en hexadecimal
+
+Extras:
+* Se guarda en un csv el uid con la hora de cada registro
+* Se un led verde y uno rojo para indicar si el uid es correcto
+
+"""
+
 import csv
 import RPi.GPIO as GPIO
 import time
@@ -58,7 +71,7 @@ def main():
             if authentication(uid):
                 GREEN_LED.on()
                 RED_LED.off()
-                data["date"] = datetime.now()
+                data["date"] = datetime.now().strftime('%m/%d/%Y %H:%M:%S')
                 data["ID"] = uid
                 write_to_csv()
                 print(f'Usuario autorizado con uid: { uid }')
