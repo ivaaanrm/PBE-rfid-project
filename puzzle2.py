@@ -2,7 +2,7 @@ from asyncio import sleep
 import gi
 import threading
 gi.require_version("Gtk","3.0")
-from gi.repository import Gtk, Gdk, GdkPixbuf, GLib
+from gi.repository import Gtk, Gdk, GLib
 import time
 from puzzle1 import Rfid, authentication, ID
 
