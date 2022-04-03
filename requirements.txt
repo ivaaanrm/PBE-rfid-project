@@ -1,0 +1,7 @@
+colorzero==2.0
+gpiozero==1.6.2
+mfrc522==0.0.7
+pycairo==1.21.0
+PyGObject==3.42.0
+RPi.GPIO==0.7.1
+spidev==3.5

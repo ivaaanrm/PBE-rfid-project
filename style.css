@@ -1,0 +1,23 @@
+button{
+    background-color: #19456B;
+    color: #F8F1F1;
+}
+
+button:hover{
+    color: white;
+    background-color: #51C4D3;
+    transition: 0.2s;
+}
+#text_label {
+    padding: 32px;
+    font-size: 18px;
+    color: #132C33;
+}
+
+#box {
+    background-color: white;
+}
+
+#box_up {
+    background-color: #D8E3E7;
+}
