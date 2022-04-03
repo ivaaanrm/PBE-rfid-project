@@ -26,6 +26,8 @@ Start puzzle 2 (02/03/2022)
 
 ![Screenshot](images/puzzle2_main.png)
 
+![Screenshot](images/puzzle2_uid.png)
+
 
 Creamos un entorno virtual donde instalremos las librerias necesarias para el proyecto.
 A partir de ahora trabajamos desde este entorno virtual.

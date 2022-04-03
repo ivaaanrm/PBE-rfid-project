@@ -51,7 +51,8 @@ class Rfid:
         while not self.id:
             self.id = self.read_id_no_block()
         self.id = [hex(num)[2:] for num in self.id][:4]
-        self.id = ''.join(self.id)        
+        self.id = ''.join(self.id) 
+        self.id = self.id[:6]       
         return self.id.upper()
         
 # Guarda en un csv la fecha más el uid leído.

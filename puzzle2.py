@@ -35,7 +35,7 @@ class MyWindow(Gtk.Window):
     # Clear window
     def on_button_clicked(self, widget): 
         self.text_label.set_markup("Please, login with your university card")
-        self.text_label.modify_bg(Gtk.StateType.NORMAL, Gdk.color_parse("white"))
+        self.text_label.modify_bg(Gtk.StateType.NORMAL, Gdk.color_parse("#D8E3E7"))
 
 
 def read_uid():
