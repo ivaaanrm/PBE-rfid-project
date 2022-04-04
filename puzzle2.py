@@ -1,16 +1,14 @@
-from asyncio import sleep
+import time
 import gi
 import threading
 gi.require_version("Gtk","3.0")
+from puzzle1 import Rfid
 from gi.repository import Gtk, Gdk, GLib
-import time
-from puzzle1 import Rfid, authentication, ID
-
 
 class MyWindow(Gtk.Window):
     def __init__(self):
         super().__init__(title="Puzzle2 - RFID Reader")
-
+        """ Diseño de la ventana """
         self.set_position(Gtk.WindowPosition.CENTER)
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         box.set_homogeneous(False)
@@ -32,7 +30,7 @@ class MyWindow(Gtk.Window):
         Gtk.StyleContext.add_provider_for_screen(screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
         self.add(box)
 
-    # Clear window
+    # Reset window
     def on_button_clicked(self, widget): 
         self.text_label.set_markup("Please, login with your university card")
         self.text_label.modify_bg(Gtk.StateType.NORMAL, Gdk.color_parse("#D8E3E7"))
@@ -44,18 +42,18 @@ def read_uid():
         uid = rf.read_id()
         print_uid(uid)
 
-def print_uid(uid):
-    GLib.idle_add(window.text_label.set_markup, f"<span foreground='#F8F1F1'> uid: <b>{uid}</b></span>") #GLiB - acceder de forma asyncrona a los widgets de la pantallaa
+def print_uid(uid): # GLiB - acceder de forma asyncrona a los widgets de la pantalla
+    GLib.idle_add(window.text_label.set_markup, f"<span foreground='#F8F1F1'> uid: <b>{uid}</b></span>") 
     GLib.idle_add(window.text_label.modify_bg, Gtk.StateType.NORMAL, Gdk.color_parse("#16C79A") )
     time.sleep(1)
     GLib.idle_add(window.text_label.modify_bg, Gtk.StateType.NORMAL, Gdk.color_parse("#11698E") )
 
 
 if __name__ == '__main__':
-    """ Creamos el thread que llama a la función para leer el uid """
+    """ Thread para ejecutar de forma paralela la funcion rad_uid() """
     thread_ = threading.Thread(target=read_uid)
     thread_.start()
-
+    """ Inicializamos y mostramos la interficie gráfica """
     window = MyWindow()
     window.connect("destroy", Gtk.main_quit)
     window.show_all()
